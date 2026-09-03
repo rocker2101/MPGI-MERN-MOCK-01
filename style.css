@@ -1,0 +1,520 @@
+/* ==========================================================
+   TaskFlow - Student Application Manager
+   Modern, Clean, Responsive CSS Styling
+   ========================================================== */
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --danger-color: #dc2626;
+    --danger-hover: #b91c1c;
+    --danger-light: #fef2f2;
+    --success-color: #16a34a;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --border-focus: #3b82f6;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --transition: all 0.2s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.5;
+    padding: 24px 16px;
+}
+
+/* App Container */
+.app-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-area {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.app-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Main Layout: 2 Columns for Form & Display */
+.main-content {
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+/* Form Card */
+.form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 16px;
+}
+
+.card-header h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.card-header p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Form Groups & Controls */
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+label, .group-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.required {
+    color: var(--danger-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.925rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: #fff;
+    color: var(--text-main);
+    transition: var(--transition);
+    outline: none;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+input.input-error,
+select.input-error,
+textarea.input-error {
+    border-color: var(--danger-color);
+    background-color: var(--danger-light);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* File Input */
+input[type="file"] {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+/* Radio & Checkbox Groups */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 4px 0;
+}
+
+.radio-label,
+.checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-main);
+    cursor: pointer;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    user-select: none;
+}
+
+.radio-label:hover,
+.checkbox-label:hover {
+    background: #e2e8f0;
+}
+
+.radio-label input,
+.checkbox-label input {
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* Validation Error Message */
+.error-msg {
+    color: var(--danger-color);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 4px;
+    min-height: 18px;
+    display: block;
+}
+
+/* Form Actions Button */
+.form-actions {
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.35);
+}
+
+/* Display Section */
+.display-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Stats Banner */
+.stats-banner {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.total-students {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-top: 2px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--bg-card);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+.empty-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.empty-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.empty-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+/* Student Cards Grid */
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* Student Card Design */
+.student-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.student-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+}
+
+/* Card Header (Photo + Basic Info) */
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 14px;
+}
+
+.student-photo {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-light);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+    background-color: #e2e8f0;
+}
+
+.card-title-group {
+    flex: 1;
+    overflow: hidden;
+}
+
+.student-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-badge {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #4338ca;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 9999px;
+}
+
+/* Card Details */
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+}
+
+.detail-row {
+    display: flex;
+    gap: 8px;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    min-width: 95px;
+}
+
+.detail-value {
+    color: var(--text-main);
+    word-break: break-word;
+}
+
+/* Skills Badges inside Card */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.skill-tag {
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #e2e8f0;
+}
+
+/* About text in Card */
+.about-text {
+    background: #f8fafc;
+    border-left: 3px solid var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.85rem;
+    color: #475569;
+    font-style: italic;
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+/* Delete Button */
+.delete-btn {
+    margin-top: auto;
+    background: #fff;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.delete-btn:hover {
+    background: var(--danger-color);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .display-section {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 16px 10px;
+    }
+
+    .app-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-card {
+        padding: 20px 16px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+        gap: 8px;
+    }
+
+    .students-grid {
+        grid-template-columns: 1fr;
+    }
+}

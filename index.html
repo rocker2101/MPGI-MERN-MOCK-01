@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaskFlow Student Application Manager - Manage student applications and profiles efficiently">
+    <title>Student Application Manager - TaskFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="badge">TaskFlow</span>
+                <h1>Student Application Manager</h1>
+                <p class="subtitle">Register and manage student applications with ease</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Form Section -->
+            <section class="form-section">
+                <div class="card form-card">
+                    <div class="card-header">
+                        <h2>Student Registration Form</h2>
+                        <p>Please fill out all the fields accurately.</p>
+                    </div>
+
+                    <form id="studentForm" novalidate>
+                        <!-- Student Name -->
+                        <div class="form-group">
+                            <label for="studentName">Student Name <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="studentName" 
+                                name="studentName" 
+                                placeholder="e.g. Rahul Sharma"
+                                autocomplete="off"
+                            >
+                            <span class="error-msg" id="nameError"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="studentEmail">Email Address <span class="required">*</span></label>
+                            <input 
+                                type="email" 
+                                id="studentEmail" 
+                                name="studentEmail" 
+                                placeholder="e.g. rahul.sharma@example.com"
+                                autocomplete="off"
+                            >
+                            <span class="error-msg" id="emailError"></span>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                            <label for="studentPhone">Phone Number <span class="required">*</span></label>
+                            <input 
+                                type="tel" 
+                                id="studentPhone" 
+                                name="studentPhone" 
+                                placeholder="10-digit mobile number"
+                                autocomplete="off"
+                            >
+                            <span class="error-msg" id="phoneError"></span>
+                        </div>
+
+                        <!-- Date of Birth -->
+                        <div class="form-group">
+                            <label for="studentDob">Date of Birth <span class="required">*</span></label>
+                            <input 
+                                type="date" 
+                                id="studentDob" 
+                                name="studentDob"
+                            >
+                            <span class="error-msg" id="dobError"></span>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="form-group">
+                            <label class="group-label">Gender <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Male" id="genderMale">
+                                    <span>Male</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Female" id="genderFemale">
+                                    <span>Female</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Other" id="genderOther">
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                            <span class="error-msg" id="genderError"></span>
+                        </div>
+
+                        <!-- Course -->
+                        <div class="form-group">
+                            <label for="studentCourse">Course <span class="required">*</span></label>
+                            <select id="studentCourse" name="course">
+                                <option value="">-- Select Course --</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="UI/UX">UI/UX</option>
+                                <option value="Python">Python</option>
+                                <option value="Data Analytics">Data Analytics</option>
+                            </select>
+                            <span class="error-msg" id="courseError"></span>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="form-group">
+                            <label class="group-label">Skills <span class="required">*</span> <small>(Select at least one)</small></label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="skills" value="HTML" id="skillHtml">
+                                    <span>HTML</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="skills" value="CSS" id="skillCss">
+                                    <span>CSS</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="skills" value="JavaScript" id="skillJs">
+                                    <span>JavaScript</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="skills" value="Git" id="skillGit">
+                                    <span>Git</span>
+                                </label>
+                            </div>
+                            <span class="error-msg" id="skillsError"></span>
+                        </div>
+
+                        <!-- About Student -->
+                        <div class="form-group">
+                            <label for="studentAbout">About Student <span class="required">*</span></label>
+                            <textarea 
+                                id="studentAbout" 
+                                name="about" 
+                                rows="3" 
+                                placeholder="Brief background or aspirations of the student..."
+                            ></textarea>
+                            <span class="error-msg" id="aboutError"></span>
+                        </div>
+
+                        <!-- Profile Photo -->
+                        <div class="form-group">
+                            <label for="studentPhoto">Profile Photo <span class="required">*</span></label>
+                            <input 
+                                type="file" 
+                                id="studentPhoto" 
+                                name="photo" 
+                                accept="image/*"
+                            >
+                            <span class="error-msg" id="photoError"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-actions">
+                            <button type="submit" id="submitBtn" class="btn btn-primary">
+                                Add Student
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Students Display Section -->
+            <section class="display-section">
+                <!-- Total Count Banner -->
+                <div class="stats-banner">
+                    <div class="stats-content">
+                        <span class="stats-label">Directory Status</span>
+                        <h3 id="studentCount" class="total-students">Total Students: 0</h3>
+                    </div>
+                </div>
+
+                <!-- Students Card Container -->
+                <div class="cards-wrapper">
+                    <div id="studentContainer" class="students-grid">
+                        <!-- Dynamic student cards will be rendered here by script.js -->
+                    </div>
+                    <!-- Empty State Placeholder -->
+                    <div id="emptyState" class="empty-state">
+                        <div class="empty-icon">🎓</div>
+                        <p class="empty-title">No Students Registered Yet</p>
+                        <p class="empty-desc">Submit the registration form on the left to add your first student card.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>
